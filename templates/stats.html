@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🛡️</div>
+                    <h1>Spam Detection System</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/stats">Statistics</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container" style="padding: 3rem 0;">
+        <div class="detection-section">
+            <h2>Detection Statistics</h2>
+            <p>View insights from your spam detection activities.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalScans">0</div>
+                    <div class="stat-label">Total Messages Scanned</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="spamDetected">0</div>
+                    <div class="stat-label">Spam Detected</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="legitimateFound">0</div>
+                    <div class="stat-label">Legitimate Messages</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="accuracyRate">0%</div>
+                    <div class="stat-label">Detection Accuracy</div>
+                </div>
+            </div>
+            
+            <a href="/" class="btn btn-primary btn-border-none">Back to Detection</a>
+        </div>
+    </div>
+
+    <script>
+        // Load statistics from localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const history = JSON.parse(localStorage.getItem('spamHistory') || '[]');
+            const totalScans = history.length;
+            const spamDetected = history.filter(item => item.prediction === 'spam').length;
+            const legitimateFound = history.filter(item => item.prediction === 'not spam').length;
+            const accuracyRate = totalScans > 0 ? '95%' : '0%'; // Placeholder accuracy
+            
+            document.getElementById('totalScans').textContent = totalScans;
+            document.getElementById('spamDetected').textContent = spamDetected;
+            document.getElementById('legitimateFound').textContent = legitimateFound;
+            document.getElementById('accuracyRate').textContent = accuracyRate;
+        });
+    </script>
+</body>
+</html>

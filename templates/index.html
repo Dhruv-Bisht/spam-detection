@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🏢</div>
+                    <h1>Spam Detection System</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/stats">Statistics</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2> Spam Detection System</h2>
+            <p>AI model trained on authentic Enron email patterns for accurate spam detection</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="main-content">
+            <!-- Detection Section -->
+            <div class="detection-section">
+                <h3 class="section-title">Check Your Email</h3>
+                <div class="input-group">
+                    <textarea 
+                        id="messageInput" 
+                        placeholder="Enter email text, business communication, or any message to check for spam patterns..."
+                        maxlength="1000"
+                    ></textarea>
+                    <div class="char-count">
+                        <span id="charCount">0</span>/1000 characters
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button id="checkBtn" class="btn btn-primary">
+                        <span>🔍 Analyze </span>
+                    </button>
+                    <button id="clearBtn" class="btn btn-secondary">
+                        <span>🗑️ Clear</span>
+                    </button>
+                </div>
+                
+                <div id="loading" class="loading">
+                    <div class="spinner"></div>
+                    <span>Analyzing...</span>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section">
+                <h3 class="section-title"> Results</h3>
+                
+                <div id="resultBox" class="result-box">
+                    <div class="result-icon">📝</div>
+                    <div class="result-content">
+                        <div class="result-label">Enter email text to analyze</div>
+                        <div class="result-desc">AI trained on Enron dataset will detect spam patterns</div>
+                    </div>
+                </div>
+
+                <div class="confidence-meter">
+                    <div class="meter-labels">
+                        <span>Legitimate</span>
+                        <span>Spam</span>
+                    </div>
+                    <div class="meter-bar">
+                        <div id="meterFill" class="meter-fill"></div>
+                    </div>
+                    <div class="confidence-score">
+                        AI Confidence: <span id="confidenceScore">0%</span>
+                    </div>
+                </div>
+
+                <div id="featuresSection" class="features" style="display: none;">
+                    <h4>Enron Pattern Analysis</h4>
+                    <div id="insightsGrid" class="insights-grid">
+                        <!-- Insights will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- History Section -->
+        <div class="history-section">
+            <div class="section-header">
+                <h3 class="section-title">Detection History</h3>
+                <div class="history-actions">
+                    <button id="clearHistoryBtn" class="btn btn-outline">
+                        <span>Clear History</span>
+                    </button>
+                </div>
+            </div>
+            <div id="historyItems" class="history-items">
+                <p>No history yet. Analyze some messages!</p>
+            </div>
+        </div>
+
+        
+    </div>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

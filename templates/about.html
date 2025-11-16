@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Spam Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🛡️</div>
+                    <h1>Spam Detection System</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/stats">Statistics</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container" style="padding: 3rem 0;">
+        <div class="detection-section">
+            <h2>About Spam Detection system</h2>
+            <p>Our System is an AI-powered spam detection tool that helps you identify suspicious messages and emails.</p>
+            
+            <h3>How It Works</h3>
+            <p>Our system uses machine learning algorithms trained on thousands of spam and legitimate messages to identify patterns commonly found in spam content.</p>
+            
+            <h3>Features</h3>
+            <ul>
+                <li>Real-time spam detection</li>
+                <li>Confidence scoring</li>
+                <li>Detailed analysis insights</li>
+                <li>Local processing for privacy</li>
+                <li>Detection history</li>
+            </ul>
+            
+            <a href="/" class="btn btn-primary btn-border-none">Try It Now</a>
+        </div>
+    </div>
+</body>
+</html>
